@@ -104,7 +104,8 @@ class GraphvizMixin:
         """
         # Generate element ID from delta path
         delta_path = self.dg._get_delta_path_str()
-        element_id = hashlib.md5(delta_path.encode()).hexdigest()
+        element_id = hashlib.md5(
+            delta_path.encode(), usedforsecurity=False).hexdigest()
 
         graphviz_chart_proto = GraphVizChartProto()
 
